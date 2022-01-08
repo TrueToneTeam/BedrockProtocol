@@ -27,6 +27,17 @@ use function strlen;
 
 class SkinImage{
 
+	public const PIXEL_SIZE = 4;
+
+	public const SINGLE_SKIN_SIZE = 64 * 32 * self::PIXEL_SIZE;
+	public const DOUBLE_SKIN_SIZE = 64 * 64 * self::PIXEL_SIZE;
+	public const SKIN_128_64_SIZE = 128 * 64 * self::PIXEL_SIZE;
+	public const SKIN_128_128_SIZE = 128 * 128 * self::PIXEL_SIZE;
+	public const SKIN_256_128_SIZE = 256 * 128 * self::PIXEL_SIZE;
+	public const SKIN_256_256_SIZE = 256 * 256 * self::PIXEL_SIZE;
+	public const SKIN_512_256_SIZE = 256 * 256 * self::PIXEL_SIZE;
+	public const SKIN_512_512_SIZE = 512 * 512 * self::PIXEL_SIZE;
+
 	private int $height;
 	private int $width;
 	private string $data;
@@ -45,12 +56,22 @@ class SkinImage{
 
 	public static function fromLegacy(string $data) : SkinImage{
 		switch(strlen($data)){
-			case 64 * 32 * 4:
+			case self::SINGLE_SKIN_SIZE:
 				return new self(32, 64, $data);
-			case 64 * 64 * 4:
+			case self::DOUBLE_SKIN_SIZE:
 				return new self(64, 64, $data);
-			case 128 * 128 * 4:
+			case self::SKIN_128_64_SIZE:
+				return new self(128, 64, $data);
+			case self::SKIN_128_128_SIZE:
 				return new self(128, 128, $data);
+			case self::SKIN_256_128_SIZE:
+				return new self(128, 256, $data);
+			case self::SKIN_256_256_SIZE:
+				return new self(256, 256, $data);
+			case self::SKIN_512_256_SIZE:
+				return new self(256, 512, $data);
+			case self::SKIN_512_512_SIZE:
+				return new self(512, 512, $data);
 		}
 
 		throw new \InvalidArgumentException("Unknown size");
