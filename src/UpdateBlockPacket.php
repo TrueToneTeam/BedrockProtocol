@@ -1,22 +1,13 @@
 <?php
 
 /*
+ * This file is part of BedrockProtocol.
+ * Copyright (C) 2014-2022 PocketMine Team <https://github.com/pmmp/BedrockProtocol>
  *
- *  ____            _        _   __  __ _                  __  __ ____
- * |  _ \ ___   ___| | _____| |_|  \/  (_)_ __   ___      |  \/  |  _ \
- * | |_) / _ \ / __| |/ / _ \ __| |\/| | | '_ \ / _ \_____| |\/| | |_) |
- * |  __/ (_) | (__|   <  __/ |_| |  | | | | | |  __/_____| |  | |  __/
- * |_|   \___/ \___|_|\_\___|\__|_|  |_|_|_| |_|\___|     |_|  |_|_|
- *
- * This program is free software: you can redistribute it and/or modify
+ * BedrockProtocol is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
- *
- *
  */
 
 declare(strict_types=1);
@@ -29,11 +20,11 @@ use pocketmine\network\mcpe\protocol\types\BlockPosition;
 class UpdateBlockPacket extends DataPacket implements ClientboundPacket{
 	public const NETWORK_ID = ProtocolInfo::UPDATE_BLOCK_PACKET;
 
-	public const FLAG_NONE      = 0b0000;
+	public const FLAG_NONE = 0b0000;
 	public const FLAG_NEIGHBORS = 0b0001;
-	public const FLAG_NETWORK   = 0b0010;
+	public const FLAG_NETWORK = 0b0010;
 	public const FLAG_NOGRAPHIC = 0b0100;
-	public const FLAG_PRIORITY  = 0b1000;
+	public const FLAG_PRIORITY = 0b1000;
 
 	public const DATA_LAYER_NORMAL = 0;
 	public const DATA_LAYER_LIQUID = 1;

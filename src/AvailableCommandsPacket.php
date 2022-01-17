@@ -1,22 +1,13 @@
 <?php
 
 /*
+ * This file is part of BedrockProtocol.
+ * Copyright (C) 2014-2022 PocketMine Team <https://github.com/pmmp/BedrockProtocol>
  *
- *  ____            _        _   __  __ _                  __  __ ____
- * |  _ \ ___   ___| | _____| |_|  \/  (_)_ __   ___      |  \/  |  _ \
- * | |_) / _ \ / __| |/ / _ \ __| |\/| | | '_ \ / _ \_____| |\/| | |_) |
- * |  __/ (_) | (__|   <  __/ |_| |  | | | | | |  __/_____| |  | |  __/
- * |_|   \___/ \___|_|\_\___|\__|_|  |_|_|_| |_|\___|     |_|  |_|_|
- *
- * This program is free software: you can redistribute it and/or modify
+ * BedrockProtocol is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- *
- * @author PocketMine Team
- * @link http://www.pocketmine.net/
- *
- *
  */
 
 declare(strict_types=1);
@@ -46,27 +37,27 @@ class AvailableCommandsPacket extends DataPacket implements ClientboundPacket{
 	 * Basic parameter types. These must be combined with the ARG_FLAG_VALID constant.
 	 * ARG_FLAG_VALID | (type const)
 	 */
-	public const ARG_TYPE_INT             = 0x01;
-	public const ARG_TYPE_FLOAT           = 0x03;
-	public const ARG_TYPE_VALUE           = 0x04;
-	public const ARG_TYPE_WILDCARD_INT    = 0x05;
-	public const ARG_TYPE_OPERATOR        = 0x06;
-	public const ARG_TYPE_TARGET          = 0x07;
+	public const ARG_TYPE_INT = 0x01;
+	public const ARG_TYPE_FLOAT = 0x03;
+	public const ARG_TYPE_VALUE = 0x04;
+	public const ARG_TYPE_WILDCARD_INT = 0x05;
+	public const ARG_TYPE_OPERATOR = 0x06;
+	public const ARG_TYPE_TARGET = 0x07;
 	public const ARG_TYPE_WILDCARD_TARGET = 0x08;
 
 	public const ARG_TYPE_FILEPATH = 0x10;
 
-	public const ARG_TYPE_STRING   = 0x20;
+	public const ARG_TYPE_STRING = 0x20;
 
 	public const ARG_TYPE_POSITION = 0x28;
 
-	public const ARG_TYPE_MESSAGE  = 0x2c;
+	public const ARG_TYPE_MESSAGE = 0x2c;
 
-	public const ARG_TYPE_RAWTEXT  = 0x2e;
+	public const ARG_TYPE_RAWTEXT = 0x2e;
 
-	public const ARG_TYPE_JSON     = 0x32;
+	public const ARG_TYPE_JSON = 0x32;
 
-	public const ARG_TYPE_COMMAND  = 0x3f;
+	public const ARG_TYPE_COMMAND = 0x3f;
 
 	/**
 	 * Enums are a little different: they are composed as follows:

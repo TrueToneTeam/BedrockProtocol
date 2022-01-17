@@ -13,6 +13,9 @@ return (new PhpCsFixer\Config)
 		'array_syntax' => [
 			'syntax' => 'short'
 		],
+		'binary_operator_spaces' => [
+			'default' => 'single_space'
+		],
 		'blank_line_after_namespace' => true,
 		'blank_line_after_opening_tag' => true,
 		'blank_line_before_statement' => [
@@ -36,22 +39,13 @@ return (new PhpCsFixer\Config)
 		],
 		'header_comment' => [
 			'header' => <<<COMMENT
+This file is part of BedrockProtocol.
+Copyright (C) 2014-2022 PocketMine Team <https://github.com/pmmp/BedrockProtocol>
 
- ____            _        _   __  __ _                  __  __ ____
-|  _ \ ___   ___| | _____| |_|  \/  (_)_ __   ___      |  \/  |  _ \
-| |_) / _ \ / __| |/ / _ \ __| |\/| | | '_ \ / _ \_____| |\/| | |_) |
-|  __/ (_) | (__|   <  __/ |_| |  | | | | | |  __/_____| |  | |  __/
-|_|   \___/ \___|_|\_\___|\__|_|  |_|_|_| |_|\___|     |_|  |_|_|
-
-This program is free software: you can redistribute it and/or modify
+BedrockProtocol is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
-
-@author PocketMine Team
-@link http://www.pocketmine.net/
-
-
 COMMENT,
 			'location' => 'after_open',
 		],
@@ -85,8 +79,13 @@ COMMENT,
 		],
 		'phpdoc_trim' => true,
 		'phpdoc_trim_consecutive_blank_line_separation' => true,
+		'return_type_declaration' => [
+			'space_before' => 'one'
+		],
+		'single_blank_line_at_eof' => true,
 		'single_import_per_statement' => true,
 		'strict_param' => true,
+		'unary_operator_spaces' => true,
 	])
 	->setFinder($finder)
 	->setIndent("\t")
