@@ -12,33 +12,35 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\network\mcpe\protocol\types\entity;
+namespace pocketmine\network\mcpe\protocol\types;
 
 use pocketmine\network\mcpe\protocol\serializer\PacketSerializer;
-use pocketmine\network\mcpe\protocol\types\GetTypeIdFromConstTrait;
 
-final class StringMetadataProperty implements MetadataProperty{
-	use GetTypeIdFromConstTrait;
+final class SubChunkPosition{
 
-	public const ID = EntityMetadataTypes::STRING;
+	public function __construct(
+		private int $x,
+		private int $y,
+		private int $z,
+	){}
 
-	private string $value;
+	public function getX() : int{ return $this->x; }
 
-	public function __construct(string $value){
-		$this->value = $value;
-	}
+	public function getY() : int{ return $this->y; }
 
-	public function getValue() : string{ return $this->value; }
+	public function getZ() : int{ return $this->z; }
 
 	public static function read(PacketSerializer $in) : self{
-		return new self($in->getString());
+		$x = $in->getVarInt();
+		$y = $in->getVarInt();
+		$z = $in->getVarInt();
+
+		return new self($x, $y, $z);
 	}
 
 	public function write(PacketSerializer $out) : void{
-		$out->putString($this->value);
-	}
-
-	public function equals(MetadataProperty $other) : bool{
-		return $other instanceof self and $other->value === $this->value;
+		$out->putVarInt($this->x);
+		$out->putVarInt($this->y);
+		$out->putVarInt($this->z);
 	}
 }
