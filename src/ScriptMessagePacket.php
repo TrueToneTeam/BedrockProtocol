@@ -15,36 +15,38 @@ declare(strict_types=1);
 namespace pocketmine\network\mcpe\protocol;
 
 use pocketmine\network\mcpe\protocol\serializer\PacketSerializer;
-use pocketmine\network\mcpe\protocol\types\CacheableNbt;
 
-class SyncActorPropertyPacket extends DataPacket implements ClientboundPacket{
-	public const NETWORK_ID = ProtocolInfo::SYNC_ACTOR_PROPERTY_PACKET;
+class ScriptMessagePacket extends DataPacket implements ClientboundPacket, ServerboundPacket{
+	public const NETWORK_ID = ProtocolInfo::SCRIPT_MESSAGE_PACKET;
 
-	/** @phpstan-var CacheableNbt<\pocketmine\nbt\tag\CompoundTag> */
-	private CacheableNbt $nbt;
+	private string $messageId;
+	private string $value;
 
 	/**
 	 * @generate-create-func
-	 * @phpstan-param CacheableNbt<\pocketmine\nbt\tag\CompoundTag> $nbt
 	 */
-	public static function create(CacheableNbt $nbt) : self{
+	public static function create(string $messageId, string $value) : self{
 		$result = new self;
-		$result->nbt = $nbt;
+		$result->messageId = $messageId;
+		$result->value = $value;
 		return $result;
 	}
 
-	/** @phpstan-return CacheableNbt<\pocketmine\nbt\tag\CompoundTag> */
-	public function getNbt() : CacheableNbt{ return $this->nbt; }
+	public function getMessageId() : string{ return $this->messageId; }
+
+	public function getValue() : string{ return $this->value; }
 
 	protected function decodePayload(PacketSerializer $in) : void{
-		$this->nbt = new CacheableNbt($in->getNbtCompoundRoot());
+		$this->messageId = $in->getString();
+		$this->value = $in->getString();
 	}
 
 	protected function encodePayload(PacketSerializer $out) : void{
-		$out->put($this->nbt->getEncodedNbt());
+		$out->putString($this->messageId);
+		$out->putString($this->value);
 	}
 
 	public function handle(PacketHandlerInterface $handler) : bool{
-		return $handler->handleSyncActorProperty($this);
+		return $handler->handleScriptMessage($this);
 	}
 }

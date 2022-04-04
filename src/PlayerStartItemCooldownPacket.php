@@ -15,36 +15,38 @@ declare(strict_types=1);
 namespace pocketmine\network\mcpe\protocol;
 
 use pocketmine\network\mcpe\protocol\serializer\PacketSerializer;
-use pocketmine\network\mcpe\protocol\types\CacheableNbt;
 
-class SyncActorPropertyPacket extends DataPacket implements ClientboundPacket{
-	public const NETWORK_ID = ProtocolInfo::SYNC_ACTOR_PROPERTY_PACKET;
+class PlayerStartItemCooldownPacket extends DataPacket implements ClientboundPacket{
+	public const NETWORK_ID = ProtocolInfo::PLAYER_START_ITEM_COOLDOWN_PACKET;
 
-	/** @phpstan-var CacheableNbt<\pocketmine\nbt\tag\CompoundTag> */
-	private CacheableNbt $nbt;
+	private string $itemCategory;
+	private int $cooldownTicks;
 
 	/**
 	 * @generate-create-func
-	 * @phpstan-param CacheableNbt<\pocketmine\nbt\tag\CompoundTag> $nbt
 	 */
-	public static function create(CacheableNbt $nbt) : self{
+	public static function create(string $itemCategory, int $cooldownTicks) : self{
 		$result = new self;
-		$result->nbt = $nbt;
+		$result->itemCategory = $itemCategory;
+		$result->cooldownTicks = $cooldownTicks;
 		return $result;
 	}
 
-	/** @phpstan-return CacheableNbt<\pocketmine\nbt\tag\CompoundTag> */
-	public function getNbt() : CacheableNbt{ return $this->nbt; }
+	public function getItemCategory() : string{ return $this->itemCategory; }
+
+	public function getCooldownTicks() : int{ return $this->cooldownTicks; }
 
 	protected function decodePayload(PacketSerializer $in) : void{
-		$this->nbt = new CacheableNbt($in->getNbtCompoundRoot());
+		$this->itemCategory = $in->getString();
+		$this->cooldownTicks = $in->getVarInt();
 	}
 
 	protected function encodePayload(PacketSerializer $out) : void{
-		$out->put($this->nbt->getEncodedNbt());
+		$out->putString($this->itemCategory);
+		$out->putVarInt($this->cooldownTicks);
 	}
 
 	public function handle(PacketHandlerInterface $handler) : bool{
-		return $handler->handleSyncActorProperty($this);
+		return $handler->handlePlayerStartItemCooldown($this);
 	}
 }
