@@ -394,5 +394,38 @@ final class LevelSoundEvent{
 	public const TONGUE = 372;
 	public const IRONGOLEM_CRACK = 373;
 	public const IRONGOLEM_REPAIR = 374;
-	public const UNDEFINED = 375;
+	public const LISTENING = 375;
+	public const HEARTBEAT = 376;
+	public const HORN_BREAK = 377;
+
+	public const BLOCK_SCULK_SPREAD = 379;
+	public const CHARGE_SCULK = 380;
+	public const BLOCK_SCULK_SENSOR_PLACE = 381;
+	public const BLOCK_SCULK_SHRIEKER_PLACE = 382;
+	public const HORN_CALL0 = 383;
+	public const HORN_CALL1 = 384;
+	public const HORN_CALL2 = 385;
+	public const HORN_CALL3 = 386;
+	public const HORN_CALL4 = 387;
+	public const HORN_CALL5 = 388;
+	public const HORN_CALL6 = 389;
+	public const HORN_CALL7 = 390;
+
+	public const IMITATE_WARDEN = 426;
+	public const LISTENING_ANGRY = 427;
+	public const ITEM_GIVEN = 428;
+	public const ITEM_TAKEN = 429;
+	public const DISAPPEARED = 430;
+	public const REAPPEARED = 431;
+
+	public const BLOCK_FROG_SPAWN_HATCH = 433;
+	public const LAY_SAPWN = 434;
+	public const BLOCK_FROG_SPAWN_BREAK = 435;
+	public const SONIC_BOOM = 436;
+	public const SONIC_CHARGE = 437;
+	public const ITEM_THROWN = 438;
+
+	public const RECORD_5 = 439;
+	public const CONVERT_TO_FROG = 440;
+	public const UNDEFINED = 441;
 }

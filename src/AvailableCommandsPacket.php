@@ -42,12 +42,14 @@ class AvailableCommandsPacket extends DataPacket implements ClientboundPacket{
 	public const ARG_TYPE_VALUE = 0x04;
 	public const ARG_TYPE_WILDCARD_INT = 0x05;
 	public const ARG_TYPE_OPERATOR = 0x06;
-	
+	public const ARG_TYPE_COMPARE_OPERATOR = 0x07;
 	public const ARG_TYPE_TARGET = 0x08;
 	
-	public const ARG_TYPE_WILDCARD_TARGET = 0x0A;
+	public const ARG_TYPE_WILDCARD_TARGET = 0x0a;
 	
 	public const ARG_TYPE_FILEPATH = 0x11;
+
+	public const ARG_TYPE_FULL_INTEGER_RANGE = 0x17;
 
 	public const ARG_TYPE_EQUIPMENT_SLOTS = 0x26;
 	public const ARG_TYPE_STRING = 0x27;
