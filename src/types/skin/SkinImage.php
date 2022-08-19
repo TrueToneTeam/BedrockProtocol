@@ -35,10 +35,6 @@ class SkinImage{
 	public const SKIN_512_256_SIZE = 512 * 256 * self::PIXEL_SIZE;
 	public const SKIN_512_512_SIZE = 512 * 512 * self::PIXEL_SIZE;
 
-	private int $height;
-	private int $width;
-	private string $data;
-
 	public function __construct(
 		private int $height,
 		private int $width,
