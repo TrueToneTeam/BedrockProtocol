@@ -18,7 +18,6 @@ use pocketmine\utils\Binary;
 use pocketmine\utils\BinaryDataException;
 
 class PacketPool{
-	/** @var self|null */
 	protected static ?PacketPool $instance = null;
 
 	public static function getInstance() : self{
@@ -86,7 +85,6 @@ class PacketPool{
 		$this->registerPacket(new CraftingDataPacket());
 		$this->registerPacket(new CraftingEventPacket());
 		$this->registerPacket(new GuiDataPickItemPacket());
-		$this->registerPacket(new AdventureSettingsPacket());
 		$this->registerPacket(new BlockActorDataPacket());
 		$this->registerPacket(new PlayerInputPacket());
 		$this->registerPacket(new LevelChunkPacket());
@@ -219,6 +217,11 @@ class PacketPool{
 		$this->registerPacket(new UpdateAdventureSettingsPacket());
 		$this->registerPacket(new DeathInfoPacket());
 		$this->registerPacket(new EditorNetworkPacket());
+		$this->registerPacket(new FeatureRegistryPacket());
+		$this->registerPacket(new ServerStatsPacket());
+		$this->registerPacket(new RequestNetworkSettingsPacket());
+		$this->registerPacket(new GameTestRequestPacket());
+		$this->registerPacket(new GameTestResultsPacket());
 	}
 
 	public function registerPacket(Packet $packet) : void{
