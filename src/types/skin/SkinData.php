@@ -62,9 +62,7 @@ class SkinData{
 		return $this->skinId;
 	}
 
-	public function getPlayFabId() : string{
-		return $this->playFabId;
-	}
+	public function getPlayFabId() : string{ return $this->playFabId; }
 
 	public function getResourcePatch() : string{
 		return $this->resourcePatch;
@@ -137,9 +135,7 @@ class SkinData{
 		return $this->personaCapeOnClassic;
 	}
 
-	public function isPrimaryUser() : bool{
-		return $this->isPrimaryUser;
-	}
+	public function isPrimaryUser() : bool{ return $this->isPrimaryUser; }
 
 	public function isOverride() : bool{ return $this->override; }
 

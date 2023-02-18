@@ -64,7 +64,7 @@ final class ClientDataToSkinDataHelper{
 			self::safeB64Decode($clientData->SkinGeometryDataEngineVersion, "SkinGeometryDataEngineVersion"), //yes, they actually base64'd the version!
 			self::safeB64Decode($clientData->SkinAnimationData, "SkinAnimationData"),
 			$clientData->CapeId,
-			$clientData->SkinId, //1.19.60 Bug..
+			$clientData->SkinId, //1.19.60 Skin Bug Fix..
 			$clientData->ArmSize,
 			$clientData->SkinColor,
 			array_map(function(ClientDataPersonaSkinPiece $piece) : PersonaSkinPiece{
