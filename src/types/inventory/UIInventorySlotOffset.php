@@ -96,5 +96,6 @@ final class UIInventorySlotOffset{
 	public const SMITHING_TABLE = [
 		51 => 0,
 		52 => 1,
+		53 => 2,
 	];
 }
