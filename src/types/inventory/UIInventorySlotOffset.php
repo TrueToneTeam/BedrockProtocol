@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace pocketmine\network\mcpe\protocol\types\inventory;
 
+/**
+ * Values extracted from PlayerUISlot enum in Bedrock
+ */
 final class UIInventorySlotOffset{
 
 	private function __construct(){
@@ -94,8 +97,8 @@ final class UIInventorySlotOffset{
 	];
 	public const CREATED_ITEM_OUTPUT = 50;
 	public const SMITHING_TABLE = [
-		51 => 0,
-		52 => 1,
-		53 => 2,
+		51 => 0, //input
+		52 => 1, //material
+		53 => 2, //template
 	];
 }
